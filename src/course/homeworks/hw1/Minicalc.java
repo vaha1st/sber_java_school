@@ -3,6 +3,7 @@ package course.homeworks.hw1;
 import java.util.Arrays;
 import java.util.Scanner;
 
+//Задача 1 из pdf/Занятие_2_Java_Основы_разработки_приложений.pdf
 public class Minicalc {
     public static void main(String[] args) {
         Scanner scanner;
