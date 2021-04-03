@@ -1,12 +1,12 @@
 package course;
 
-import java.util.Scanner;
+import course.homeworks.hw3.hash.EffectiveHashcode;
+import course.homeworks.hw3.hash.TestMy;
 
 public class HelloWorld {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int x = scanner.nextInt();
 
-        System.out.println(x);
+    public static void main(String[] args) {
+        TestMy test = new TestMy();
+        System.out.println(new EffectiveHashcode().getHashcode(test));
     }
 }
