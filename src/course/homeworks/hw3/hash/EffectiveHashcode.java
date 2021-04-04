@@ -2,6 +2,8 @@ package course.homeworks.hw3.hash;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.Iterator;
 
 /* Класс для генерации хэшкода у любого объекта. Не поддерживает Collections. Алгоритм по Effective Java */
 public class EffectiveHashcode {
@@ -57,7 +59,13 @@ public class EffectiveHashcode {
                     if (field.get(obj) instanceof Number || field.get(obj) instanceof Boolean
                             || field.get(obj) instanceof Character || field.getType() == String.class) {
                         c = generatePrimitiveHashcode(field.get(obj));
-                    } else {
+                        // !!! Следующее условие не срабатывает. А должно отлавливать коллекции !!!
+                    } else if (Collections.class.isAssignableFrom(field.getType())) {
+                        Iterator<Object> iterator = ((Iterable)field.get(obj)).iterator();
+                        while (iterator.hasNext()) {
+                            c += getHashcode(iterator.next());
+                        }
+                    }else {
                         c = getHashcode(field.get(obj));
                     }
                 } catch (IllegalAccessException e) {

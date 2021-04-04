@@ -1,6 +1,8 @@
 package course.homeworks.hw3.hash;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class TestMy {
     boolean b1;
@@ -14,6 +16,7 @@ public class TestMy {
     String      str;
     int[]       arr;
     Book        book;
+    List<Integer> list;
 
     public TestMy() {
         this.b1 = false;
@@ -28,5 +31,8 @@ public class TestMy {
         this.arr = new int[3];
         arr[0] = 123;
         this.book = new Book("asd", "asdas", 1231, 123);
+        list = new ArrayList<>();
+        list.add(123);
+        list.add(321);
     }
 }
